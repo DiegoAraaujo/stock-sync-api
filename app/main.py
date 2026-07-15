@@ -7,10 +7,13 @@ from app.sync import models as sync_models
 Base.metadata.create_all(bind=engine)
 
 from app.products.router import router as products_router
+from app.products.router import router as products_router
+from app.orders.router import router as orders_router
 
 app = FastAPI(title="Stock Sync API")
 
 app.include_router(products_router)
+app.include_router(orders_router)
 
 
 @app.get("/")
