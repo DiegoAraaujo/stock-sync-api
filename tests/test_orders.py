@@ -1,7 +1,13 @@
 def create_product(client, quantity=10):
-    response = client.post("/products/", json={
-        "name": "Estante", "category": "Sala", "price": 450, "quantity": quantity
-    })
+    response = client.post(
+        "/products/",
+        json={
+            "name": "Estante",
+            "category": "Sala",
+            "price": 450,
+            "quantity": quantity,
+        },
+    )
     return response.json()["id"]
 
 

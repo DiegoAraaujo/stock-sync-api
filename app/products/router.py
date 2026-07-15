@@ -2,7 +2,12 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.database import get_db
 from app.products import service
-from app.products.schemas import ProductCreate, ProductUpdate, ProductResponse, StockUpdate
+from app.products.schemas import (
+    ProductCreate,
+    ProductUpdate,
+    ProductResponse,
+    StockUpdate,
+)
 
 router = APIRouter(prefix="/products", tags=["products"])
 

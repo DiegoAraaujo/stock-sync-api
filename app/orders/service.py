@@ -23,8 +23,7 @@ def create(db: Session, data: OrderCreate) -> Order:
 
     if product.quantity < data.quantity:
         raise HTTPException(
-            status_code=400,
-            detail=f"Insufficient stock. Available: {product.quantity}"
+            status_code=400, detail=f"Insufficient stock. Available: {product.quantity}"
         )
 
     product.quantity -= data.quantity
