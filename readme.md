@@ -15,6 +15,7 @@ My main experience is in Node.js/NestJS and TypeScript. This project was built t
 - **PostgreSQL** — relational database
 - **Pydantic** — input/output schema validation
 - **Pytest** — automated testing
+- **Docker & Docker Compose** — containerization and local orchestration
 
 ## Features
 
@@ -114,6 +115,29 @@ uvicorn app.main:app --reload
 http://127.0.0.1:8000/docs
 ```
 
+## Running with Docker
+
+As an alternative to the manual setup above, the project can be run fully containerized, without installing PostgreSQL locally.
+
+1. Create a `.env.docker` file in the project root:
+```bash
+DATABASE_URL=postgresql://postgres:postgres@db:5432/stock_sync
+```
+
+2. Build and start the containers:
+
+```bash
+docker compose up --build
+```
+
+3. Access the interactive API docs at:
+
+```bash
+http://127.0.0.1:8000/docs
+```
+
+This spins up two containers: the API and a PostgreSQL instance, already connected to each other.
+
 ### Running tests
 
 ```bash
@@ -125,4 +149,3 @@ pytest -v
 - Use Alembic for migration versioning, instead of automatic table creation
 - Authentication and authorization on routes
 - Real integration with an ERP (e.g. Odoo, via XML-RPC or REST API)
-- Containerization with Docker
